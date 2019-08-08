@@ -37,6 +37,7 @@ export const state = {
     },
   },
   order: {                                              // order informations
+    no: 'JC293016',
     shop: {
       storeID: '001',
       payCode: '',
@@ -80,8 +81,8 @@ export const state = {
       },
       email: '',
     },
-    shipFee: 0,
-    totalPrice: 0,
-    status: orderStatus.NONE,
+    shipFee: 60,
+    totalPrice: 940,
+    status: orderStatus.UNPAID,
   },
 };
