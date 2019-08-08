@@ -1,11 +1,14 @@
 <template>
   <div class="wrap">
+    <!-- header -->
     <PurchaseInfo/>
+    <!-- content -->
     <div class="content"></div>
+    <!-- buttons -->
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
       <div class="col-6 col-lg-2">
-        <button class="btn prev">上一步</button>
+        <button class="btn prev" disabled>上一步</button>
       </div>
       <div class="col-6 col-lg-2">
         <button class="btn next">下一步</button>
