@@ -23,11 +23,14 @@ export default {
   flex-direction: column;
 }
 .logo {
+  width: 100%;
   height: 50px;
+  margin: 0 auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   @media (min-width: $limit-w-pc) {
+    width: $limit-w-pc;
     height: 80px;
   }
   img {
