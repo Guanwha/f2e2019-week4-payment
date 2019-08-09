@@ -1,7 +1,21 @@
 import { payTypes, orderStatus } from './constants';
-
+import * as types from './mutation_types';
 
 export const mutations = {
+  [types.FILL_PAYINFO](state) {
+    state.order.status = orderStatus.UNPAID;
+  },
+  [types.CHECK_ORDER](state) {
+    state.order.status = orderStatus.CHECK;
+  },
+  [types.PAY](state) {
+    // [TODO] update the state.order
+    state.order.status = orderStatus.PAID;
+  },
+  [types.RESET](state) {
+    state.order.card.code = '';
+    state.order.status = orderStatus.UNPAID;
+  },
 };
 
 export const state = {

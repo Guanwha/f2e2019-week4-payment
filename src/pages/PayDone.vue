@@ -3,15 +3,16 @@
     <!-- header -->
     <PurchaseInfo/>
     <!-- content -->
-    <router-view></router-view>
+    <div class="content"></div>
     <!-- buttons -->
     <div class="btns container">
-      <div class="col-lg-8 hide-in-phone"></div>
+      <div class="col-lg-4 hide-in-phone"></div>
       <div class="col-6 col-lg-2">
-        <button class="btn prev" @click="prev">上一步</button>
+        <button class="btn prev">會員專區</button>
       </div>
       <div class="col-6 col-lg-2">
-        <button class="btn next" @click="next">下一步</button>
+        <button class="btn next" @click="home">返回首頁</button>
+      <div class="col-lg-4 hide-in-phone"></div>
       </div>
     </div>
   </div>
@@ -22,19 +23,16 @@ import { mapActions } from 'vuex';
 import PurchaseInfo from '../components/PurchaseInfo';
 
 export default {
-  name: 'PayInfo',
+  name: 'PayDone',
   components: {
     PurchaseInfo,
   },
   methods: {
-    prev() {
-      this.$router.back();
+    home() {
+      this.reset();
+      this.$router.go(-3);
     },
-    next() {
-      this.checkOrder();
-      this.$router.push({ name: 'PayCheck' });
-    },
-    ...mapActions(['checkOrder']),
+    ...mapActions(['reset']),
   },
 };
 </script>
@@ -49,7 +47,7 @@ export default {
 }
 .content {
   height: 200px;            // [DELETE]
-  background: pink;
+  background: lightskyblue;
 }
 .btns {
   height: 56.34px;

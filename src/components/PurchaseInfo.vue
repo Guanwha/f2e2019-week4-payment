@@ -11,7 +11,7 @@
       <img src='@/assets/step3.svg'>
       <p class="hide-block willdo">確認訂購</p>
     </div>
-    <div class="steps" v-if='curOrderTypes === cOrderStatus.PAID'>
+    <div class="steps" v-if='curOrderTypes === cOrderStatus.CHECK'>
       <img src='@/assets/icon_done.svg'>
       <p class="hide-block done">確認購物車</p>
       <img src='@/assets/icon_arrow.svg'>
@@ -19,6 +19,16 @@
       <p class="hide-block done">選擇配送付款方式</p>
       <img src='@/assets/icon_arrow.svg'>
       <img src='@/assets/step3_active.svg'>
+      <p>確認訂購</p>
+    </div>
+    <div class="steps" v-if='curOrderTypes === cOrderStatus.PAID'>
+      <img src='@/assets/icon_done.svg'>
+      <p class="hide-block done">確認購物車</p>
+      <img src='@/assets/icon_arrow.svg'>
+      <img src='@/assets/icon_done.svg'>
+      <p class="hide-block done">選擇配送付款方式</p>
+      <img src='@/assets/icon_arrow.svg'>
+      <img src='@/assets/icon_done.svg'>
       <p>確認訂購</p>
     </div>
     <!-- purchase detail -->

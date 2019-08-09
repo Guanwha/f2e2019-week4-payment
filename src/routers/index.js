@@ -4,6 +4,8 @@ import Payment from '../pages/Payment';
 import SelectPayType from '../pages/SelectPayType';
 import PayInfo from '../pages/PayInfo';
 import PayByShop from '../components/PayByShop';
+import PayCheck from '../pages/PayCheck';
+import PayDone from '../pages/PayDone';
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,16 @@ export default new VueRouter({
               component: PayByShop,
             },
           ],
+        },
+        {
+          name: 'PayCheck',
+          path: 'paycheck',
+          component: PayCheck,
+        },
+        {
+          name: 'PayDone',
+          path: 'paydone',
+          component: PayDone,
         },
       ],
     },
