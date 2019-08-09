@@ -3,48 +3,32 @@
     <!-- header -->
     <PurchaseInfo/>
     <!-- content -->
-    <div class="content"></div>
+    <router-view></router-view>
     <!-- buttons -->
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
       <div class="col-6 col-lg-2">
-        <button class="btn prev" disabled>上一步</button>
+        <button class="btn prev" @click="prev">上一步</button>
       </div>
       <div class="col-6 col-lg-2">
-        <button class="btn next" @click="next">下一步</button>
+        <button class="btn next">下一步</button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import PurchaseInfo from '../components/PurchaseInfo';
-import { payTypes } from '../stores/constants';
 
 export default {
-  name: 'SelectPayType',
+  name: 'PayInfo',
   components: {
     PurchaseInfo,
   },
-  data() {
-    return {
-      cPayTypes: payTypes,
-    };
-  },
   methods: {
-    next() {
-      switch (this.curPayBy) {
-        case this.cPayTypes.SHOP: this.$router.push('payInfo/shop'); break;
-        case this.cPayTypes.CARD: this.$router.push('payInfo/card'); break;
-        case this.cPayTypes.WEBATM: this.$router.push('payInfo/webatm'); break;
-        case this.cPayTypes.LINEPAY: this.$router.push('payInfo/linepay'); break;
-        default: break;
-      }
+    prev() {
+      this.$router.go(-1);
     },
-  },
-  computed: {
-    ...mapGetters(['curPayBy']),
   },
 };
 </script>
@@ -59,6 +43,7 @@ export default {
 }
 .content {
   height: 200px;            // [DELETE]
+  background: pink;
 }
 .btns {
   height: 56.34px;

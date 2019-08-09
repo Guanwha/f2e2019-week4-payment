@@ -12,6 +12,7 @@ const getters = {
   },
   shipPrice: state => state.order.shipFee,
   totalPrice: state => state.order.totalPrice,
+  curPayBy: state => state.payBy,
   shopList: state => state.shops,
 };
 
