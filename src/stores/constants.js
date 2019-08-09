@@ -9,5 +9,6 @@ export const payTypes = {
 export const orderStatus = {
   NONE: 0,
   UNPAID: 1,
-  PAID: 2,
+  CHECK: 2,
+  PAID: 3,
 };

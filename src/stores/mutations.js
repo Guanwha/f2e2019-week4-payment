@@ -1,7 +1,21 @@
 import { payTypes, orderStatus } from './constants';
-
+import * as types from './mutation_types';
 
 export const mutations = {
+  [types.FILL_PAYINFO](state) {
+    state.order.status = orderStatus.UNPAID;
+  },
+  [types.CHECK_ORDER](state) {
+    state.order.status = orderStatus.CHECK;
+  },
+  [types.PAY](state) {
+    // [TODO] update the state.order
+    state.order.status = orderStatus.PAID;
+  },
+  [types.RESET](state) {
+    state.order.card.code = '';
+    state.order.status = orderStatus.UNPAID;
+  },
 };
 
 export const state = {
@@ -37,6 +51,7 @@ export const state = {
     },
   },
   order: {                                              // order informations
+    no: 'JC293016',
     shop: {
       storeID: '001',
       payCode: '',
@@ -80,8 +95,8 @@ export const state = {
       },
       email: '',
     },
-    shipFee: 0,
-    totalPrice: 0,
-    status: orderStatus.NONE,
+    shipFee: 60,
+    totalPrice: 940,
+    status: orderStatus.UNPAID,
   },
 };
