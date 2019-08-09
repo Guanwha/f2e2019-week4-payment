@@ -1,0 +1,7 @@
+
+.hide-in-phone {
+  display: none;
+  @media(min-width: $limit-w-pc) {
+    display: block;
+  }
+}
