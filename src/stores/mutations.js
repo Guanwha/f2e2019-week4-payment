@@ -2,6 +2,10 @@ import { payTypes, orderStatus } from './constants';
 import * as types from './mutation_types';
 
 export const mutations = {
+  // payload is pay type
+  [types.SELECT_PAY_TYPE](state, payload) {
+    state.payBy = payload;
+  },
   [types.FILL_PAYINFO](state) {
     state.order.status = orderStatus.UNPAID;
   },

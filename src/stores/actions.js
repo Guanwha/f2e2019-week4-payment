@@ -1,6 +1,9 @@
 import * as types from './mutation_types';
 
 const actions = {
+  selectPayType: ({ commit }, payload) => {
+    commit(types.SELECT_PAY_TYPE, payload);
+  },
   fillPayInfo: ({ commit }) => {
     commit(types.FILL_PAYINFO);
   },
