@@ -65,7 +65,7 @@
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
       <div class="col-6 col-lg-2">
-        <button class="btn prev" disabled>上一步</button>
+        <button class="btn prev disabled" disabled>上一步</button>
       </div>
       <div class="col-6 col-lg-2">
         <button class="btn next" @click="next">下一步</button>
@@ -199,6 +199,9 @@ export default {
     &:hover {
       background: $clr-white * 0.8;
     }
+    &.disabled {
+      background: $clr-white;
+    }
   }
   .next {
     width: 100%;
@@ -207,6 +210,9 @@ export default {
     background: $clr-main;
     &:hover {
       background: $clr-main * 0.8;
+    }
+    &.disabled {
+      background: $clr-main;
     }
   }
 }
