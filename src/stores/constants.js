@@ -4,6 +4,7 @@ export const payTypes = {
   CARD: 1,
   WEBATM: 2,
   LINEPAY: 3,
+  UNIONPAY: 4,
 };
 
 export const orderStatus = {
