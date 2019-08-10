@@ -43,15 +43,15 @@
       </div>
     </div>
     <!-- orderer information -->
-    <div class="container a1-orderer">
+    <div class="container a1-someone">
       <!-- title -->
       <div class="row a2-header">
         <div class="col-12 flex-rlc">填寫訂購人資訊</div>
       </div>
       <!-- orderer info -->
-      <div class="a2-orderer-bg">
+      <div class="a2-someone-bg">
         <!-- orderer name & phone -->
-        <div class="row a3-orderer">
+        <div class="row a3-someone">
           <div class="col-12 col-lg-1 title">姓名</div>
           <!-- name -->
           <div class="col-12 col-lg-5 field">
@@ -82,7 +82,7 @@
           </div>
         </div>
         <!-- orderer address -->
-        <div class="row a3-orderer">
+        <div class="row a3-someone">
           <div class="col-12 col-lg-1 title">
             <div>地址</div>
           </div>
@@ -94,7 +94,7 @@
           </div>
         </div>
         <!-- orderer email -->
-        <div class="row a3-orderer">
+        <div class="row a3-someone">
           <div class="col-12 col-lg-1 title">
             <div>Email</div>
           </div>
@@ -219,16 +219,16 @@ export default {
     filter: drop-shadow(0 0 10px);
   }
 }
-.a1-orderer {
+.a1-someone {
   width: 100%;
   margin-top: 10px;
   .a2-header {
     padding: 10px 0;
   }
-  .a2-orderer-bg {
+  .a2-someone-bg {
     padding: 0 15px;
     border-left: 2px solid $clr-main;
-    .a3-orderer {
+    .a3-someone {
       padding: 5px 15px;
       font-size: $f-size-2;
       line-height: $f-size-2 * 1.5;
@@ -249,7 +249,6 @@ export default {
     }
   }
 }
-.a1-recepient {}
 .shop-item {
   padding: 10px;
   border-radius: 4px;
