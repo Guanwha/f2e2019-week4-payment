@@ -2,8 +2,160 @@
   <div class="wrap">
     <!-- header -->
     <PurchaseInfo/>
-    <!-- content -->
+    <!-- pay content -->
     <router-view></router-view>
+
+    <!-- orderer information -->
+    <div class="container a1-someone">
+      <!-- title -->
+      <div class="row a2-header">
+        <div class="col-12 flex-rlc">填寫訂購人資訊</div>
+      </div>
+      <!-- orderer info -->
+      <div class="a2-someone-bg">
+        <!-- orderer name & phone -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">姓名</div>
+          <!-- name -->
+          <div class="col-12 col-lg-5 field">
+            <input class="form-control" type="text" id="idName" v-model="orderer.name" placeholder="請填寫真實姓名">
+          </div>
+          <div class="col-12 col-lg-1 title">
+            <div>手機</div>
+          </div>
+          <!-- area code -->
+          <div class="col-12 col-lg-1 field">
+            <div class="dropdown remove-p">
+              <button id="idAreaCode"
+                      type="button" class="btn btn-dropdown dropdown-toggle"
+                      data-toggle="dropdown">
+                {{orderer.areaCode}}
+              </button>
+              <div class="dropdown-menu">
+                <div v-for='(country, code) in areaCode'
+                    :key='code'>
+                  <a class="dropdown-item" href="#" @click="orderer.areaCode = code">{{code}} {{country}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- phone code -->
+          <div class="col-12 col-lg-4 field">
+            <input class="form-control" type="number" id="idPhone" v-model="orderer.phone" placeholder="請填寫手機號碼">
+          </div>
+        </div>
+        <!-- orderer address -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>地址</div>
+          </div>
+          <div class="col-12 col-lg-2 field">
+            <input class="form-control" type="text" id="idPostCode" v-model="orderer.postCode" placeholder="郵遞區號">
+          </div>
+          <div class="col-12 col-lg-9 field">
+            <input class="form-control" type="text" id="idAddress" v-model="orderer.address" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+          </div>
+        </div>
+        <!-- orderer email -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>Email</div>
+          </div>
+          <div class="col-12 col-lg-11 field">
+            <input class="form-control" type="email" id="idEmail" v-model="orderer.email" placeholder="寄送通知會發送至此email">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- recipient information -->
+    <div class="container a1-someone">
+      <!-- title -->
+      <div class="row a2-header">
+        <div class="col-6 flex-rlc">填寫收件人資訊</div>
+        <div class="col-6 flex-rrc" @click='switchEqualOrdererInfo'>
+          <div class="circle uncheck-circle" v-show='!isSameOrdererInfo'></div>
+          <div class="circle checked-circle" v-show='isSameOrdererInfo'></div>
+          <p>同訂購人資料</p>
+        </div>
+      </div>
+      <!-- recipient info -->
+      <div class="a2-someone-bg" v-show='!isSameOrdererInfo'>
+        <!-- recipient name & phone -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">姓名</div>
+          <!-- name -->
+          <div class="col-12 col-lg-5 field">
+            <input class="form-control" type="text" id="idName2" v-model="recipient.name" placeholder="請填寫真實姓名">
+          </div>
+          <div class="col-12 col-lg-1 title">
+            <div>手機</div>
+          </div>
+          <!-- area code -->
+          <div class="col-12 col-lg-1 field">
+            <div class="dropdown remove-p">
+              <button id="idAreaCode2"
+                      type="button" class="btn btn-dropdown dropdown-toggle"
+                      data-toggle="dropdown">
+                {{recipient.areaCode}}
+              </button>
+              <div class="dropdown-menu">
+                <div v-for='(country, code) in areaCode'
+                    :key='code'>
+                  <a class="dropdown-item" href="#" @click="recipient.areaCode = code">{{code}} {{country}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- phone code -->
+          <div class="col-12 col-lg-4 field">
+            <input class="form-control" type="number" id="idPhone2" v-model="recipient.phone" placeholder="請填寫手機號碼">
+          </div>
+        </div>
+        <!-- recipient address -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>地址</div>
+          </div>
+          <div class="col-12 col-lg-2 field">
+            <input class="form-control" type="text" id="idPostCode2" v-model="recipient.postCode" placeholder="郵遞區號">
+          </div>
+          <div class="col-12 col-lg-9 field">
+            <input class="form-control" type="text" id="idAddress2" v-model="recipient.address" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+          </div>
+        </div>
+        <!-- recipient email -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>Email</div>
+          </div>
+          <div class="col-12 col-lg-11 field">
+            <input class="form-control" type="email" id="idEmail2" v-model="recipient.email" placeholder="寄送通知會發送至此email">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- remark -->
+    <div class="container">
+      <div class="row">
+        <div class="a1-remark">
+          <div class="col-12 remarks">
+            <div class="col-12">・請確認您填寫的資料是否正確，一旦訂單完成後，付款與物流方式皆無法修改。</div>
+            <div class="col-12">・若訂單內含預購、無庫存商品調貨時間請參考「商品平均調貨時間」。</div>
+            <div class="col-12">・若您對取貨或付款的方式有疑問，請詳閱<a href='#'>「購買說明」</a>。</div>
+            <div class='col-12 bold'>・請確認您已詳閱並瞭解本站<a href='#'>「購買說明」</a>內容，訂單完成即表示您已同意其中的各項說明。</div>
+            <div class="col-12 check flex-rlc" @click='switchRemarkChecked'>
+              <div class="circle uncheck-circle" v-show='!remarkChecked'></div>
+              <div class="circle checked-circle" v-show='remarkChecked'></div>
+              <p>確認，我已瞭解</p>
+            </div>
+            <div class="bg hide-in-phone"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- buttons -->
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
@@ -14,6 +166,7 @@
         <button class="btn next" @click="next">下一步</button>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -26,7 +179,44 @@ export default {
   components: {
     PurchaseInfo,
   },
+  data() {
+    return {
+      areaCode: {
+        886: '台灣',
+        86: '中國',
+        81: '日本',
+        82: '韓國',
+      },
+      orderer: {
+        name: '',
+        areaCode: '886',
+        phone: '',
+        postCode: '',
+        address: '',
+        email: '',
+      },
+      recipient: {
+        name: '',
+        areaCode: '886',
+        phone: '',
+        postCode: '',
+        address: '',
+        email: '',
+      },
+      isSameOrdererInfo: false,
+      remarkChecked: false,
+    };
+  },
   methods: {
+    switchEqualOrdererInfo() {
+      this.isSameOrdererInfo = !this.isSameOrdererInfo;
+      if (this.isSameOrdererInfo) {
+        this.recipient = Object.assign({}, this.orderer);   // copy
+      }
+    },
+    switchRemarkChecked() {
+      this.remarkChecked = !this.remarkChecked;
+    },
     prev() {
       this.$router.back();
     },
@@ -42,15 +232,54 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
 @import '../styles/common.scss';
+@import '../styles/main.scss';
 
 .wrap {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-.content {
-  height: 200px;            // [DELETE]
-  background: pink;
+.a1-someone {
+  width: 100%;
+  margin-top: 10px;
+  .a2-header {
+    padding: 10px 0;
+  }
+  .a2-someone-bg {
+    padding: 0 15px;
+    border-left: 2px solid $clr-main;
+    .a3-someone {
+      padding: 5px 15px;
+      font-size: $f-size-2;
+      line-height: $f-size-2 * 1.5;
+      text-align: left;
+      .title {
+        margin: 10px auto 5px auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media(min-width: $limit-w-pc) {
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .field {
+        margin: 5px auto;
+      }
+    }
+  }
+}
+.a1-remark {
+  width: 100%;
+  padding: 0 15px;
+  .check {
+    margin-top: 15px;
+    font-size: $f-size-2;
+  }
+}
+.btn-dropdown {
+  border: 1px solid $clr-line-d;
+  border-radius: 0.25rem;
 }
 .btns {
   height: 56.34px;
