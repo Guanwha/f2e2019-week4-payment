@@ -9,14 +9,14 @@
     <div class="a1-select container">
       <!-- tool bar -->
       <div class="row a2-tool">
-        <div class="col-6 col-lg-2 text flex-lc">選擇取貨門市</div>
-        <div class="col-6 col-lg-2 icon flex-rc"><img src='../assets/logo_family.png'></div>
+        <div class="col-6 col-lg-2 text flex-rlc">選擇取貨門市</div>
+        <div class="col-6 col-lg-2 icon flex-rrc"><img src='../assets/logo_family.png'></div>
         <div class="col-lg-4 hide-in-phone"/>
-        <div class="col-6 col-lg-2 icon-text flex-lc">
+        <div class="col-6 col-lg-2 icon-text flex-rlc">
           <img src='../assets/icon_add.svg'>
           <p>選擇取貨門市</p>
         </div>
-        <div class="col-6 col-lg-2 icon-text flex-rc notice hover-shadow"
+        <div class="col-6 col-lg-2 icon-text flex-rrc notice hover-shadow"
              data-toggle="modal"
              data-target="#dialog-shop-list">
           <img src="../assets/icon_like.svg">
@@ -27,9 +27,9 @@
       <div class="a2-store-bg">
         <!-- store name -->
         <div class="row a3-store">
-          <div class="col-12 col-lg-2 text flex-lc">取貨店名</div>
-          <div class="col-6  col-lg-2 text flex-lc">{{shopList[curShopID].store}}</div>
-          <div class="col-6  col-lg-3 icon-text flex-rc notice">
+          <div class="col-12 col-lg-2 text flex-rlc">取貨店名</div>
+          <div class="col-4  col-lg-2 text flex-rlc">{{shopList[curShopID].store}}</div>
+          <div class="col-8  col-lg-3 icon-text flex-rrc notice">
             <img src='../assets/icon_like.svg'>
             <p>儲存至常用門市</p>
           </div>
@@ -37,8 +37,8 @@
         <!-- store address -->
         <hr style='margin: 0'>
         <div class="row a3-store">
-          <div class="col-12 col-lg-2 text flex-left">取貨地址</div>
-          <div class="col-12 col-lg-10 text flex-left">{{shopList[curShopID].address}}</div>
+          <div class="col-12 col-lg-2 text flex-rlc">取貨地址</div>
+          <div class="col-12 col-lg-10 text flex-rlc">{{shopList[curShopID].address}}</div>
         </div>
       </div>
     </div>
@@ -109,7 +109,6 @@ export default {
   }
 }
 .a1-select {
-  // background: lightgreen;
   .a2-tool {
     margin-bottom: 12px;
   }

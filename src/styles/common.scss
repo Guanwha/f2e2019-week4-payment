@@ -11,16 +11,22 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  text-align: left;
 }
 .flex-rcc {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .flex-rrc {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+  text-align: right;
 }
 
 //
