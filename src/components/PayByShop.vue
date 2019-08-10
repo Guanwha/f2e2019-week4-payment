@@ -109,7 +109,7 @@
       <!-- title -->
       <div class="row a2-header">
         <div class="col-6 flex-rlc">填寫收件人資訊</div>
-        <div class="col-6 flex-rrc" @click='setEqualOrdererInfo'>
+        <div class="col-6 flex-rrc" @click='switchEqualOrdererInfo'>
           <div class="circle uncheck-circle" v-show='!isSameOrdererInfo'></div>
           <div class="circle checked-circle" v-show='isSameOrdererInfo'></div>
           <p>同訂購人資料</p>
@@ -172,6 +172,26 @@
       </div>
     </div>
 
+    <!-- remark -->
+    <div class="container">
+      <div class="row">
+        <div class="a1-remark">
+          <div class="col-12 remarks">
+            <div class="col-12">・請確認您填寫的資料是否正確，一旦訂單完成後，付款與物流方式皆無法修改。</div>
+            <div class="col-12">・若訂單內含預購、無庫存商品調貨時間請參考「商品平均調貨時間」。</div>
+            <div class="col-12">・若您對取貨或付款的方式有疑問，請詳閱<a href='#'>「購買說明」</a>。</div>
+            <div class='col-12 bold'>・請確認您已詳閱並瞭解本站<a href='#'>「購買說明」</a>內容，訂單完成即表示您已同意其中的各項說明。</div>
+            <div class="col-12 check flex-rlc" @click='switchRemarkChecked'>
+              <div class="circle uncheck-circle" v-show='!remarkChecked'></div>
+              <div class="circle checked-circle" v-show='remarkChecked'></div>
+              <p>確認，我已瞭解</p>
+            </div>
+            <div class="bg hide-in-phone"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- dialog -->
     <div class="modal fade" id="dialog-shop-list">
       <div class="modal-dialog modal-dialog-centered">
@@ -207,11 +227,15 @@ export default {
         82: '韓國',
       },
       isSameOrdererInfo: false,
+      remarkChecked: false,
     };
   },
   methods: {
-    setEqualOrdererInfo() {
+    switchEqualOrdererInfo() {
       this.isSameOrdererInfo = !this.isSameOrdererInfo;
+    },
+    switchRemarkChecked() {
+      this.remarkChecked = !this.remarkChecked;
     },
     ...mapActions(['selectShop']),
   },
@@ -224,6 +248,7 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
 @import '../styles/common.scss';
+@import '../styles/main.scss';
 
 .wrap {
   width: 100%;
@@ -316,6 +341,14 @@ export default {
         margin: 5px auto;
       }
     }
+  }
+}
+.a1-remark {
+  width: 100%;
+  padding: 0 15px;
+  .check {
+    margin-top: 15px;
+    font-size: $f-size-2;
   }
 }
 .shop-item {
