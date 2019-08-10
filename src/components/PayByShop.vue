@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <!-- title -->
-    <div class="title">
+    <div class="pay-title">
       <img src='/static/icon_shop.svg'>
       <p>超商取貨付款</p>
     </div>
@@ -91,7 +91,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-.title {
+.pay-title {
   height: 27px;
   margin: 25px auto;
   display: flex;
@@ -109,9 +109,24 @@ export default {
   }
 }
 .a1-select {
+  // layout
   .a2-tool {
     margin-bottom: 12px;
   }
+  .a2-store-bg {
+    padding: 0 15px;
+    border-left: 2px solid $clr-main;
+    .a3-store {
+      height: 88px;
+      padding: 20px 15px;
+      background: $clr-bg-f5;
+      display: flex;
+      @media(min-width: $limit-w-pc) {
+        height: 64px;
+      }
+    }
+  }
+  // detail
   .text {
     margin: 0;
     line-height: $f-size-2 * 1.5;
@@ -131,19 +146,6 @@ export default {
   }
   .hover-shadow:hover {
     filter: drop-shadow(0 0 10px);
-  }
-  .a2-store-bg {
-    padding: 0 15px;
-    border-left: 2px solid $clr-main;
-    .a3-store {
-      height: 88px;
-      padding: 20px 15px;
-      background: $clr-bg-f5;
-      display: flex;
-      @media(min-width: $limit-w-pc) {
-        height: 64px;
-      }
-    }
   }
 }
 .a1-orderer {
