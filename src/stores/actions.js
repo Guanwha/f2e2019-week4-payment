@@ -4,6 +4,10 @@ const actions = {
   selectPayType: ({ commit }, payload) => {
     commit(types.SELECT_PAY_TYPE, payload);
   },
+  selectShop: ({ commit }, payload) => {
+    commit(types.SELECT_SHOP, payload);
+  },
+  // ------ switch page ------
   fillPayInfo: ({ commit }) => {
     commit(types.FILL_PAYINFO);
   },

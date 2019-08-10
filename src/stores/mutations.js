@@ -6,6 +6,11 @@ export const mutations = {
   [types.SELECT_PAY_TYPE](state, payload) {
     state.payBy = payload;
   },
+  // payload is shop key
+  [types.SELECT_SHOP](state, payload) {
+    state.curShopID = payload;
+  },
+  // ------ switch page ------
   [types.FILL_PAYINFO](state) {
     state.order.status = orderStatus.UNPAID;
   },

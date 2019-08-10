@@ -14,6 +14,7 @@ const getters = {
   totalPrice: state => state.order.totalPrice,
   curPayBy: state => state.payBy,
   shopList: state => state.shops,
+  curShopID: state => state.curShopID,
 };
 
 export default getters;

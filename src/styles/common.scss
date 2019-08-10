@@ -5,3 +5,25 @@
     display: block;
   }
 }
+
+// child component alignment in flex object
+.flex-rlc {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.flex-rcc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.flex-rrc {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+//
+.remove-p {
+  padding: 0;
+}
