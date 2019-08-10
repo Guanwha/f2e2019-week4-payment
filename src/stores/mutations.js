@@ -14,8 +14,13 @@ export const mutations = {
   [types.FILL_PAYINFO](state) {
     state.order.status = orderStatus.UNPAID;
   },
-  [types.CHECK_ORDER](state) {
-    state.order.status = orderStatus.CHECK;
+  // payload is object (include orderer{}, recipient{})
+  [types.CHECK_ORDER](state, payload) {
+    if (payload) {
+      state.order.orderer = Object.assign(payload.orderer);
+      state.order.recipient = Object.assign(payload.recipient);
+      state.order.status = orderStatus.CHECK;
+    }
   },
   [types.PAY](state) {
     // [TODO] update the state.order
@@ -82,26 +87,18 @@ export const state = {
     },
     orderer: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
     recipient: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
     shipFee: 60,

@@ -70,3 +70,9 @@ $mlr-gap: 0.5rem;
   background-image: url('../assets/checked_circle.svg');
   background-repeat: no-repeat;
 }
+
+// vee-validate
+.is-danger {
+  border-color: red;
+  color: red;
+}

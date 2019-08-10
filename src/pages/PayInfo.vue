@@ -18,7 +18,9 @@
           <div class="col-12 col-lg-1 title">姓名</div>
           <!-- name -->
           <div class="col-12 col-lg-5 field">
-            <input class="form-control" type="text" id="idName" v-model="orderer.name" placeholder="請填寫真實姓名">
+            <input class="form-control" type="text" id="idName" v-model="orderer.name" placeholder="請填寫真實姓名"
+                   name='name' v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('name') }">
+            <span v-show="errors.has('name')" class="is-danger">{{ errors.first('name') }}</span>
           </div>
           <div class="col-12 col-lg-1 title">
             <div>手機</div>
@@ -41,7 +43,9 @@
           </div>
           <!-- phone code -->
           <div class="col-12 col-lg-4 field">
-            <input class="form-control" type="number" id="idPhone" v-model="orderer.phone" placeholder="請填寫手機號碼">
+            <input class="form-control" type="number" id="idPhone" v-model="orderer.phone" placeholder="請填寫手機號碼"
+                   name='phone' v-validate="'required|numeric'" :class="{'input': true, 'is-danger': errors.has('phone') }">
+            <span v-show="errors.has('phone')" class="is-danger">{{ errors.first('phone') }}</span>
           </div>
         </div>
         <!-- orderer address -->
@@ -50,10 +54,14 @@
             <div>地址</div>
           </div>
           <div class="col-12 col-lg-2 field">
-            <input class="form-control" type="text" id="idPostCode" v-model="orderer.postCode" placeholder="郵遞區號">
+            <input class="form-control" type="text" id="idPostCode" v-model="orderer.postCode" placeholder="郵遞區號"
+                   name='postcode' v-validate="'required|numeric'" :class="{'input': true, 'is-danger': errors.has('postcode') }">
+            <span v-show="errors.has('postcode')" class="is-danger">{{ errors.first('postcode') }}</span>
           </div>
           <div class="col-12 col-lg-9 field">
-            <input class="form-control" type="text" id="idAddress" v-model="orderer.address" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+            <input class="form-control" type="text" id="idAddress" v-model="orderer.address" placeholder="例：新北市信義區復興路999段99號1巷8樓"
+                   name='address' v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('address') }">
+            <span v-show="errors.has('address')" class="is-danger">{{ errors.first('address') }}</span>
           </div>
         </div>
         <!-- orderer email -->
@@ -62,7 +70,11 @@
             <div>Email</div>
           </div>
           <div class="col-12 col-lg-11 field">
-            <input class="form-control" type="email" id="idEmail" v-model="orderer.email" placeholder="寄送通知會發送至此email">
+            <p class="control has-icon has-icon-right">
+              <input class="form-control" type="email" id="idEmail" v-model="orderer.email" placeholder="寄送通知會發送至此email"
+                     name='email' v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email') }">
+              <span v-show="errors.has('email')" class="is-danger">{{ errors.first('email') }}</span>
+            </p>
           </div>
         </div>
       </div>
@@ -86,7 +98,9 @@
           <div class="col-12 col-lg-1 title">姓名</div>
           <!-- name -->
           <div class="col-12 col-lg-5 field">
-            <input class="form-control" type="text" id="idName2" v-model="recipient.name" placeholder="請填寫真實姓名">
+            <input class="form-control" type="text" id="idName2" v-model="recipient.name" placeholder="請填寫真實姓名"
+                   name='name2' v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('name2') }">
+            <span v-show="errors.has('name2')" class="is-danger">{{ errors.first('name2') }}</span>
           </div>
           <div class="col-12 col-lg-1 title">
             <div>手機</div>
@@ -109,7 +123,9 @@
           </div>
           <!-- phone code -->
           <div class="col-12 col-lg-4 field">
-            <input class="form-control" type="number" id="idPhone2" v-model="recipient.phone" placeholder="請填寫手機號碼">
+            <input class="form-control" type="number" id="idPhone2" v-model="recipient.phone" placeholder="請填寫手機號碼"
+                   name='phone2' v-validate="'required|numeric'" :class="{'input': true, 'is-danger': errors.has('phone2') }">
+            <span v-show="errors.has('phone2')" class="is-danger">{{ errors.first('phone2') }}</span>
           </div>
         </div>
         <!-- recipient address -->
@@ -118,10 +134,14 @@
             <div>地址</div>
           </div>
           <div class="col-12 col-lg-2 field">
-            <input class="form-control" type="text" id="idPostCode2" v-model="recipient.postCode" placeholder="郵遞區號">
+            <input class="form-control" type="text" id="idPostCode2" v-model="recipient.postCode" placeholder="郵遞區號"
+                   name='postCode2' v-validate="'required|numeric'" :class="{'input': true, 'is-danger': errors.has('postCode2') }">
+            <span v-show="errors.has('postCode2')" class="is-danger">{{ errors.first('postCode2') }}</span>
           </div>
           <div class="col-12 col-lg-9 field">
-            <input class="form-control" type="text" id="idAddress2" v-model="recipient.address" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+            <input class="form-control" type="text" id="idAddress2" v-model="recipient.address" placeholder="例：新北市信義區復興路999段99號1巷8樓"
+                   name='address2' v-validate="'required'" :class="{'input': true, 'is-danger': errors.has('address2') }">
+            <span v-show="errors.has('address2')" class="is-danger">{{ errors.first('address2') }}</span>
           </div>
         </div>
         <!-- recipient email -->
@@ -130,7 +150,9 @@
             <div>Email</div>
           </div>
           <div class="col-12 col-lg-11 field">
-            <input class="form-control" type="email" id="idEmail2" v-model="recipient.email" placeholder="寄送通知會發送至此email">
+            <input class="form-control" type="email" id="idEmail2" v-model="recipient.email" placeholder="寄送通知會發送至此email"
+                   name='email2' v-validate="'required|email'" :class="{'input': true, 'is-danger': errors.has('email2') }">
+            <span v-show="errors.has('email2')" class="is-danger">{{ errors.first('email2') }}</span>
           </div>
         </div>
       </div>
@@ -221,8 +243,16 @@ export default {
       this.$router.back();
     },
     next() {
-      this.checkOrder();
-      this.$router.push({ name: 'PayCheck' });
+      // validator check
+      this.$validator.validate().then((valid) => {
+        if (valid) {
+          this.checkOrder({
+            orderer: this.orderer,
+            recipient: this.recipient,
+          });
+          this.$router.push({ name: 'PayCheck' });
+        }
+      });
     },
     ...mapActions(['checkOrder']),
   },

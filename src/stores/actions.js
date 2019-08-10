@@ -11,8 +11,8 @@ const actions = {
   fillPayInfo: ({ commit }) => {
     commit(types.FILL_PAYINFO);
   },
-  checkOrder: ({ commit }) => {
-    commit(types.CHECK_ORDER);
+  checkOrder: ({ commit }, payload) => {
+    commit(types.CHECK_ORDER, payload);
   },
   pay: ({ commit }) => {
     commit(types.PAY);
