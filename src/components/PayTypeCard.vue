@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
-$mlr-gap: 2%;
+@import '../styles/common.scss';
 
 .wrap {
   height: 120px;
@@ -36,11 +36,6 @@ $mlr-gap: 2%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  .circle {
-    width: 24px;
-    height: 24px;
-    margin: 0 $mlr-gap;
-  }
   img {
     margin: 0 $mlr-gap;
   }
@@ -60,14 +55,6 @@ $mlr-gap: 2%;
       margin-top: 5px;
     }
   }
-}
-.uncheck-circle {
-  background-image: url('../assets/uncheck_circle.svg');
-  background-repeat: no-repeat;
-}
-.checked-circle {
-  background-image: url('../assets/checked_circle.svg');
-  background-repeat: no-repeat;
 }
 .unselect-border {
   border: 1px solid $clr-line-d;

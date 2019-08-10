@@ -54,3 +54,19 @@
 .remove-p {
   padding: 0;
 }
+
+// component
+$mlr-gap: 0.5rem;
+.circle {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 $mlr-gap;
+}
+.uncheck-circle {
+  background-image: url('../assets/uncheck_circle.svg');
+  background-repeat: no-repeat;
+}
+.checked-circle {
+  background-image: url('../assets/checked_circle.svg');
+  background-repeat: no-repeat;
+}
