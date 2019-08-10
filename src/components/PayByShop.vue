@@ -43,7 +43,67 @@
       </div>
     </div>
     <!-- orderer information -->
-    <div class="a1-orderer"></div>
+    <div class="container a1-orderer">
+      <!-- title -->
+      <div class="row a2-header">
+        <div class="col-12 flex-rlc">填寫訂購人資訊</div>
+      </div>
+      <!-- orderer info -->
+      <div class="a2-orderer-bg">
+        <!-- orderer name & phone -->
+        <div class="row a3-orderer">
+          <div class="col-12 col-lg-1 title">姓名</div>
+          <!-- name -->
+          <div class="col-12 col-lg-5 field">
+            <input class="form-control" type="text" id="idName" placeholder="請填寫真實姓名">
+          </div>
+          <div class="col-12 col-lg-1 title">
+            <div>手機</div>
+          </div>
+          <!-- area code -->
+          <div class="col-12 col-lg-1 field">
+            <div class="dropdown remove-p">
+              <button id="idAreaCode"
+                      type="button" class="btn btn-dropdown dropdown-toggle"
+                      data-toggle="dropdown">
+                {{curAreaCode}}
+              </button>
+              <div class="dropdown-menu">
+                <div v-for='(country, code) in areaCode'
+                    :key='code'>
+                  <a class="dropdown-item" href="#">{{code}} {{country}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- phone code -->
+          <div class="col-12 col-lg-4 field">
+            <input class="form-control" type="number" id="idPhone" placeholder="請填寫手機號碼">
+          </div>
+        </div>
+        <!-- orderer address -->
+        <div class="row a3-orderer">
+          <div class="col-12 col-lg-1 title">
+            <div>地址</div>
+          </div>
+          <div class="col-12 col-lg-2 field">
+            <input class="form-control" type="text" id="idPostalCode" placeholder="郵遞區號">
+          </div>
+          <div class="col-12 col-lg-9 field">
+            <input class="form-control" type="text" id="idAddress" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+          </div>
+        </div>
+        <!-- orderer email -->
+        <div class="row a3-orderer">
+          <div class="col-12 col-lg-1 title">
+            <div>Email</div>
+          </div>
+          <div class="col-12 col-lg-11 field">
+            <input class="form-control" type="email" id="idEmail" placeholder="寄送通知會發送至此email">
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- recepient information -->
     <div class="a1-recepient"></div>
 
@@ -72,6 +132,17 @@ import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'PayByShop',
+  data() {
+    return {
+      curAreaCode: 886,
+      areaCode: {
+        886: '台灣',
+        86: '中國',
+        81: '日本',
+        82: '韓國',
+      },
+    };
+  },
   methods: {
     ...mapActions(['selectShop']),
   },
@@ -150,8 +221,33 @@ export default {
 }
 .a1-orderer {
   width: 100%;
-  height: 100px;
-  background: white;
+  margin-top: 10px;
+  .a2-header {
+    padding: 10px 0;
+  }
+  .a2-orderer-bg {
+    padding: 0 15px;
+    border-left: 2px solid $clr-main;
+    .a3-orderer {
+      padding: 5px 15px;
+      font-size: $f-size-2;
+      line-height: $f-size-2 * 1.5;
+      text-align: left;
+      .title {
+        margin: 10px auto 5px auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media(min-width: $limit-w-pc) {
+          display: flex;
+          justify-content: center;
+        }
+      }
+      .field {
+        margin: 5px auto;
+      }
+    }
+  }
 }
 .a1-recepient {}
 .shop-item {
@@ -175,6 +271,10 @@ export default {
     font-size: $f-size-1;
     line-height: $f-size-1 * 1.5;
   }
+}
+.btn-dropdown {
+  border: 1px solid $clr-line-d;
+  border-radius: 0.25rem;
 }
 </style>
 
