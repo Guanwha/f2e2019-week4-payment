@@ -149,6 +149,7 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
 @import '../styles/common.scss';
+@import '../styles/main.scss';
 
 .wrap {
   width: 100%;
@@ -162,30 +163,6 @@ export default {
   }
   .card:hover {
     border: 3px solid $clr-main;
-  }
-}
-.remarks {
-  min-height: 132.359px;;
-  margin-top: 43px;
-  margin-bottom: 15px;
-  font-size: $f-size-1;
-  line-height: $f-size-3;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
-  a {
-    color: $clr-main;
-  }
-  .bg {
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 182px;
-    height: 132.359px;
-    background-image: url('../assets/icon_notice.svg');
   }
 }
 .btns {
