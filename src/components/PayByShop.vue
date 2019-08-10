@@ -104,8 +104,73 @@
         </div>
       </div>
     </div>
-    <!-- recepient information -->
-    <div class="a1-recepient"></div>
+    <!-- recipient information -->
+    <div class="container a1-someone">
+      <!-- title -->
+      <div class="row a2-header">
+        <div class="col-6 flex-rlc">填寫收件人資訊</div>
+        <div class="col-6 flex-rrc" @click='setEqualOrdererInfo'>
+          <div class="circle uncheck-circle" v-show='!isSameOrdererInfo'></div>
+          <div class="circle checked-circle" v-show='isSameOrdererInfo'></div>
+          <p>同訂購人資料</p>
+        </div>
+      </div>
+      <!-- recipient info -->
+      <div class="a2-someone-bg" v-show='!isSameOrdererInfo'>
+        <!-- recipient name & phone -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">姓名</div>
+          <!-- name -->
+          <div class="col-12 col-lg-5 field">
+            <input class="form-control" type="text" id="idName" placeholder="請填寫真實姓名">
+          </div>
+          <div class="col-12 col-lg-1 title">
+            <div>手機</div>
+          </div>
+          <!-- area code -->
+          <div class="col-12 col-lg-1 field">
+            <div class="dropdown remove-p">
+              <button id="idAreaCode"
+                      type="button" class="btn btn-dropdown dropdown-toggle"
+                      data-toggle="dropdown">
+                {{curAreaCode}}
+              </button>
+              <div class="dropdown-menu">
+                <div v-for='(country, code) in areaCode'
+                    :key='code'>
+                  <a class="dropdown-item" href="#">{{code}} {{country}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- phone code -->
+          <div class="col-12 col-lg-4 field">
+            <input class="form-control" type="number" id="idPhone" placeholder="請填寫手機號碼">
+          </div>
+        </div>
+        <!-- recipient address -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>地址</div>
+          </div>
+          <div class="col-12 col-lg-2 field">
+            <input class="form-control" type="text" id="idPostalCode" placeholder="郵遞區號">
+          </div>
+          <div class="col-12 col-lg-9 field">
+            <input class="form-control" type="text" id="idAddress" placeholder="例：新北市信義區復興路999段99號1巷8樓">
+          </div>
+        </div>
+        <!-- recipient email -->
+        <div class="row a3-someone">
+          <div class="col-12 col-lg-1 title">
+            <div>Email</div>
+          </div>
+          <div class="col-12 col-lg-11 field">
+            <input class="form-control" type="email" id="idEmail" placeholder="寄送通知會發送至此email">
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- dialog -->
     <div class="modal fade" id="dialog-shop-list">
@@ -141,9 +206,13 @@ export default {
         81: '日本',
         82: '韓國',
       },
+      isSameOrdererInfo: false,
     };
   },
   methods: {
+    setEqualOrdererInfo() {
+      this.isSameOrdererInfo = !this.isSameOrdererInfo;
+    },
     ...mapActions(['selectShop']),
   },
   computed: {
@@ -203,10 +272,10 @@ export default {
     line-height: $f-size-2 * 1.5;
   }
   .icon {
-    height: 24px;
+    height: $f-size-2 * 1.5;
   }
   .icon-text {
-    height: 24px;
+    height: $f-size-2 * 1.5;
     p {
       margin-left: 5px;
       line-height: $f-size-2 * 1.5;

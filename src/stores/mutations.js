@@ -92,7 +92,7 @@ export const state = {
       },
       email: '',
     },
-    recepient: {
+    recipient: {
       name: '',
       phone: {
         code: '886',
