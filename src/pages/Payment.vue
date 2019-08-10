@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <div class="logo"><img src='../assets/logo.svg'></div>
+    <div class="logo flex-rlc"><img src='../assets/logo.svg'></div>
     <div class="content">
       <router-view></router-view>
     </div>
@@ -15,6 +15,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
+@import '@/styles/common.scss';
 
 .wrap {
   width: 100%;
@@ -24,14 +25,11 @@ export default {
 }
 .logo {
   width: 100%;
-  height: 50px;
   margin: 0 auto;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  padding: 11.26px;
   @media (min-width: $limit-w-pc) {
     width: $limit-w-pc;
-    height: 80px;
+    padding: 20px;
   }
   img {
     height: 27.48px;

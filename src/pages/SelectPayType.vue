@@ -2,6 +2,7 @@
   <div class="wrap">
     <!-- header -->
     <PurchaseInfo/>
+
     <!-- content -->
     <div class="container content">
       <div class="row">
@@ -61,6 +62,7 @@
         </div>
       </div>
     </div>
+
     <!-- buttons -->
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
@@ -71,6 +73,9 @@
         <button class="btn next" @click="next">下一步</button>
       </div>
     </div>
+
+    <!-- footer -->
+    <div style="height: 30px"/>
   </div>
 </template>
 

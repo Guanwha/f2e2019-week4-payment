@@ -189,6 +189,8 @@
       </div>
     </div>
 
+    <!-- footer -->
+    <div style="height: 30px"/>
   </div>
 </template>
 
