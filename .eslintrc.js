@@ -56,5 +56,7 @@ module.exports = {
     'no-plusplus': ["error", { "allowForLoopAfterthoughts": true }],
     // allow conditional / switchcase indent
     'indent': ["error", 2, { "ignoredNodes": ["ConditionalExpression"], "SwitchCase": 1 }],
+    // allow max-length in one-line
+    'max-len': ["error", { "code": 255 }],
   }
 }
