@@ -2,7 +2,7 @@
   <div class="wrap">
     <!-- title -->
     <div class="pay-title">
-      <img src='/static/icon_shop.svg'>
+      <img :src="titleIcon">
       <p>超商取貨付款</p>
     </div>
     <!-- select shop -->
@@ -219,6 +219,7 @@ export default {
   name: 'PayByShop',
   data() {
     return {
+      titleIcon: './static/images/icon_shop.svg',
       curAreaCode: 886,
       areaCode: {
         886: '台灣',
