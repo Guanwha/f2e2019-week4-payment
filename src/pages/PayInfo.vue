@@ -188,7 +188,7 @@
         <button class="btn prev" @click="prev">上一步</button>
       </div>
       <div class="col-6 col-lg-2">
-        <button class="btn next" @click="next">下一步</button>
+        <button :class="['btn', 'next', {'disabled': !remarkChecked}]" @click="next" :disabled="!remarkChecked">下一步</button>
       </div>
     </div>
 
@@ -340,6 +340,9 @@ export default {
     background: $clr-main;
     &:hover {
       background: $clr-main * 0.8;
+    }
+    &.disabled {
+      background: $clr-main;
     }
   }
 }
