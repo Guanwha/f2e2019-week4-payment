@@ -1,5 +1,5 @@
 <template>
-  <div class="order">
+  <div :class="['order', { 'order-hide-detail' : !pShowDetail}]">
     <!-- purchase flow -->
     <div class="steps" v-if='curOrderTypes === cOrderStatus.UNPAID'>
       <img src='@/assets/icon_done.svg'>
@@ -32,7 +32,7 @@
       <p>確認訂購</p>
     </div>
     <!-- purchase detail -->
-    <div class="detail-bg">
+    <div class="detail-bg" v-show='pShowDetail'>
       <div class="detail container-fluid">
         <div class="row" style="height: 100%">
           <div class="col-6 col-lg-4 left">
@@ -67,6 +67,9 @@ import { orderStatus } from '../stores/constants';
 
 export default {
   name: 'PurchaseInfo',
+  props: {
+    pShowDetail: Boolean,
+  },
   data() {
     return {
       cOrderStatus: orderStatus,
@@ -80,16 +83,20 @@ export default {
 
 <style lang="scss" scoped>
 @import '@/styles/_variables.scss';
+$height-steps: 54px;
+$height-detail: 145px;
+$height-overlap: 24px;
+$height-order: $height-steps + $height-detail - $height-overlap;
 
 .order {
-  height: 175px;
+  height: $height-order;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   .steps {
     width: 100%;
-    height: 54px;
+    height: $height-steps;
     position: absolute;
     z-index: 1;
     background: $clr-bg-f5;
@@ -117,12 +124,12 @@ export default {
   }
   .detail-bg {
     width: 100%;
-    height: 145px;
+    height: $height-detail;
     position: absolute;
-    top: 30px;
+    top: $height-steps - $height-overlap;
     z-index: 0;
     background-image: $clr-gradient;
-    padding-top: 24px;
+    padding-top: $height-overlap;
   }
   .detail {
     width: 100%;
@@ -180,6 +187,9 @@ export default {
       }
     }
   }
+}
+.order-hide-detail {
+  height: $height-steps;
 }
 </style>
 

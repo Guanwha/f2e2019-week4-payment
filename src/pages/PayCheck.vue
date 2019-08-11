@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <!-- header -->
-    <PurchaseInfo/>
+    <PurchaseInfo :pShowDetail='false'/>
     <!-- content -->
     <div class="content"></div>
     <!-- buttons -->
