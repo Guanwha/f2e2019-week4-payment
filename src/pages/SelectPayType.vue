@@ -105,13 +105,13 @@ export default {
           icon: './static/images/icon_card.svg',
           title: '信用卡 付款',
           remark: 'VISA, Master, JCB, 聯合信用卡',
-          isDisabled: false,
+          isDisabled: true,
         },
         linepay: {
           icon: './static/images/icon_linepay.svg',
           title: 'LINE Pay 付款',
           remark: '使用line point折抵消費',
-          isDisabled: false,
+          isDisabled: true,
         },
         unionpay: {
           icon: './static/images/icon_unionpay.png',
@@ -123,7 +123,7 @@ export default {
           icon: './static/images/icon_webatm.svg',
           title: 'Web ATM 付款',
           remark: '網路銀行ATM操作說明',
-          isDisabled: false,
+          isDisabled: true,
         },
       },
     };
