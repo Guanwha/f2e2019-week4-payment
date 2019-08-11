@@ -16,9 +16,13 @@ const getters = {
   },
   shipPrice: state => state.order.shipFee,
   totalPrice: state => state.order.totalPrice,
+
   curPayBy: state => state.payBy,
   shopList: state => state.shops,
   curShopID: state => state.curShopID,
+  curOrderer: state => state.order.orderer,
+  curRecipient: state => state.order.recipient,
+
   prodList: state => state.cart,
   destAddress: (state) => {
     if (state.payBy === payTypes.SHOP) {

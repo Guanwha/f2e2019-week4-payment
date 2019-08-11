@@ -198,7 +198,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import PurchaseInfo from '../components/PurchaseInfo';
 
 export default {
@@ -234,6 +234,10 @@ export default {
       remarkChecked: false,
     };
   },
+  mounted() {
+    this.orderer = Object.assign({}, this.curOrderer);
+    this.recipient = Object.assign({}, this.curRecipient);
+  },
   methods: {
     switchEqualOrdererInfo() {
       this.isSameOrdererInfo = !this.isSameOrdererInfo;
@@ -264,6 +268,9 @@ export default {
       });
     },
     ...mapActions(['checkOrder']),
+  },
+  computed: {
+    ...mapGetters(['curOrderer', 'curRecipient']),
   },
 };
 </script>
