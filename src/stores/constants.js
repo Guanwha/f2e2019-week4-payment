@@ -11,7 +11,8 @@ export const orderStatus = {
   NONE: 0,
   UNPAID: 1,
   CHECK: 2,
-  PAID: 3,
+  ORDERED: 3,     // for shop: confirm the order, but not paid
+  PAID: 4,
 };
 
 export const banks = {

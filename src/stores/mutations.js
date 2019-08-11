@@ -24,7 +24,12 @@ export const mutations = {
   },
   [types.PAY](state) {
     // [TODO] update the state.order
-    state.order.status = orderStatus.PAID;
+    if (state.payBy === payTypes.SHOP) {
+      state.order.status = orderStatus.ORDERED;
+    }
+    else {
+      state.order.status = orderStatus.PAID;
+    }
   },
   [types.RESET](state) {
     state.order.card.code = '';
