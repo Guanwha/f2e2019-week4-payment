@@ -1,21 +1,57 @@
 import { payTypes, orderStatus } from './constants';
-
+import * as types from './mutation_types';
 
 export const mutations = {
+  // payload is pay type
+  [types.SELECT_PAY_TYPE](state, payload) {
+    state.payBy = payload;
+  },
+  // payload is shop key
+  [types.SELECT_SHOP](state, payload) {
+    state.curShopID = payload;
+  },
+  // ------ switch page ------
+  [types.FILL_PAYINFO](state) {
+    state.order.status = orderStatus.UNPAID;
+  },
+  // payload is object (include orderer{}, recipient{})
+  [types.CHECK_ORDER](state, payload) {
+    if (payload) {
+      state.order.orderer = Object.assign(payload.orderer);
+      state.order.recipient = Object.assign(payload.recipient);
+      state.order.status = orderStatus.CHECK;
+    }
+  },
+  [types.PAY](state) {
+    // [TODO] update the state.order
+    if (state.payBy === payTypes.SHOP) {
+      state.order.status = orderStatus.ORDERED;
+    }
+    else {
+      state.order.status = orderStatus.PAID;
+    }
+  },
+  [types.RESET](state) {
+    state.order.card.code = '';
+    state.order.status = orderStatus.UNPAID;
+  },
 };
 
 export const state = {
-  carts: [{                                             // carts list
-    prod: { id: '001', name: '長版無袖洋裝' },
-    count: 1,
-    color: '綠色',
-    price: 599,
-  }, {
-    prod: { id: '002', name: '大球氣質銀飾耳環(針式)' },
-    count: 1,
-    color: '紅色',
-    price: 281,
-  }],
+  cart: {
+    '001': {                                             // cart list
+      name: '長版無袖洋裝',
+      count: 1,
+      color: '綠色',
+      price: 599,
+    },
+    '002': {
+      name: '大球氣質銀飾耳環(針式)',
+      count: 1,
+      color: '紅色',
+      price: 281,
+    },
+  },
   payBy: payTypes.SHOP,                                 // payment types
   curShopID: '001',
   shops: {                                              // commone shop list
@@ -37,10 +73,11 @@ export const state = {
     },
   },
   order: {                                              // order informations
+    no: 'JC293016',
     shop: {
       storeID: '001',
-      payCode: '',
-      payDeadLine: '',
+      payCode: 'Rh7847213183',
+      payDeadLine: '2019/08/10,am00:00',
     },
     card: {
       number: '',
@@ -49,39 +86,31 @@ export const state = {
       fee: 0,
     },
     webatm: {
-      bankCode: '',
-      fee: 0,
+      bankCode: '808',
+      fee: 15,
     },
     linepay: {
-      discount: 0,
+      discount: 65,
       fee: 0,
     },
     orderer: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
-    recepient: {
+    recipient: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
-    shipFee: 0,
-    totalPrice: 0,
-    status: orderStatus.NONE,
+    shipFee: 60,
+    totalPrice: 940,
+    status: orderStatus.UNPAID,
   },
 };
