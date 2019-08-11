@@ -6,11 +6,21 @@ export const mutations = {
   [types.SELECT_PAY_TYPE](state, payload) {
     state.payBy = payload;
   },
+  // payload is shop key
+  [types.SELECT_SHOP](state, payload) {
+    state.curShopID = payload;
+  },
+  // ------ switch page ------
   [types.FILL_PAYINFO](state) {
     state.order.status = orderStatus.UNPAID;
   },
-  [types.CHECK_ORDER](state) {
-    state.order.status = orderStatus.CHECK;
+  // payload is object (include orderer{}, recipient{})
+  [types.CHECK_ORDER](state, payload) {
+    if (payload) {
+      state.order.orderer = Object.assign(payload.orderer);
+      state.order.recipient = Object.assign(payload.recipient);
+      state.order.status = orderStatus.CHECK;
+    }
   },
   [types.PAY](state) {
     // [TODO] update the state.order
@@ -77,26 +87,18 @@ export const state = {
     },
     orderer: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
-    recepient: {
+    recipient: {
       name: '',
-      phone: {
-        code: '886',
-        number: '',
-      },
-      address: {
-        code: '',
-        detail: '',
-      },
+      areaCode: '886',
+      phone: '',
+      postCode: '',
+      address: '',
       email: '',
     },
     shipFee: 60,

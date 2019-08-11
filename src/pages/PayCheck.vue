@@ -42,6 +42,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../styles/_variables.scss';
+@import '../styles/common.scss';
 
 .wrap {
   width: 100%;
@@ -73,12 +74,6 @@ export default {
     &:hover {
       background: $clr-main * 0.8;
     }
-  }
-}
-.hide-in-phone {
-  display: none;
-  @media(min-width: $limit-w-pc) {
-    display: block;
   }
 }
 </style>
