@@ -14,7 +14,7 @@
     <div class="btns container">
       <div class="col-lg-4 hide-in-phone"></div>
       <div class="col-6 col-lg-2">
-        <button class="btn prev">會員專區</button>
+        <button class="btn prev disabled" disabled>會員專區</button>
       </div>
       <div class="col-6 col-lg-2">
         <button class="btn next" @click="home">返回首頁</button>
@@ -93,6 +93,9 @@ export default {
     border: 1px solid $clr-line-d;
     &:hover {
       background: $clr-white * 0.8;
+    }
+    &.disabled {
+      background: $clr-white;
     }
   }
   .next {

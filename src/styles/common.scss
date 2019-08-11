@@ -69,8 +69,8 @@
 // component
 $mlr-gap: 0.5rem;
 .circle {
-  width: 1.5rem;
-  height: 1.5rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
   margin: 0 $mlr-gap;
 }
 .uncheck-circle {

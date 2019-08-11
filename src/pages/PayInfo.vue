@@ -88,7 +88,7 @@
         <div class="col-6 flex-rrc" @click='switchEqualOrdererInfo'>
           <div class="circle uncheck-circle" v-show='!isSameOrdererInfo'></div>
           <div class="circle checked-circle" v-show='isSameOrdererInfo'></div>
-          <p>同訂購人資料</p>
+          <p>同訂購人</p>
         </div>
       </div>
       <!-- recipient info -->
@@ -245,6 +245,11 @@ export default {
         this.recipient = Object.assign({}, this.orderer);   // copy
       }
     },
+    copyToRecipientIfNeed() {
+      if (this.isSameOrdererInfo) {
+        this.recipient = Object.assign({}, this.orderer);   // copy
+      }
+    },
     switchRemarkChecked() {
       this.remarkChecked = !this.remarkChecked;
     },
@@ -252,6 +257,9 @@ export default {
       this.$router.back();
     },
     next() {
+      // copy if need
+      this.copyToRecipientIfNeed();
+
       // validator check
       this.$validator.validate().then((valid) => {
         // check remark has read
