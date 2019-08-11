@@ -167,10 +167,13 @@
             <div class="col-12">・若訂單內含預購、無庫存商品調貨時間請參考「商品平均調貨時間」。</div>
             <div class="col-12">・若您對取貨或付款的方式有疑問，請詳閱<a href='#'>「購買說明」</a>。</div>
             <div class='col-12 bold'>・請確認您已詳閱並瞭解本站<a href='#'>「購買說明」</a>內容，訂單完成即表示您已同意其中的各項說明。</div>
-            <div class="col-12 check flex-rlc" @click='switchRemarkChecked'>
+            <div class="col-12 check flex-rlc" @click='switchRemarkChecked'
+                 :class="{'is-danger': !remarkChecked }">
               <div class="circle uncheck-circle" v-show='!remarkChecked'></div>
               <div class="circle checked-circle" v-show='remarkChecked'></div>
               <p>確認，我已瞭解</p>
+              <div style='width: 10px'/>
+              <p v-show="!remarkChecked" class="is-danger">(You need to check this firstly.)</p>
             </div>
             <div class="bg hide-in-phone"/>
           </div>
@@ -247,6 +250,10 @@ export default {
     next() {
       // validator check
       this.$validator.validate().then((valid) => {
+        // check remark has read
+        if (!this.remarkChecked) return;
+
+        // check validation
         if (valid) {
           this.checkOrder({
             orderer: this.orderer,
