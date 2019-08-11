@@ -104,7 +104,8 @@ export default {
       switch (this.curOrderTypes) {
         case this.cOrderStatus.NONE: return '未知';
         case this.cOrderStatus.UNPAID:
-        case this.cOrderStatus.CHECK: return '待付款';
+        case this.cOrderStatus.CHECK:
+        case this.cOrderStatus.ORDERED: return '待付款';
         case this.cOrderStatus.PAID: return '已付款';
         default: return `未知 (${this.curOrderTypes})`;
       }
