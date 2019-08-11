@@ -33,17 +33,20 @@ export const mutations = {
 };
 
 export const state = {
-  carts: [{                                             // carts list
-    prod: { id: '001', name: '長版無袖洋裝' },
-    count: 1,
-    color: '綠色',
-    price: 599,
-  }, {
-    prod: { id: '002', name: '大球氣質銀飾耳環(針式)' },
-    count: 1,
-    color: '紅色',
-    price: 281,
-  }],
+  cart: {
+    '001': {                                             // cart list
+      name: '長版無袖洋裝',
+      count: 1,
+      color: '綠色',
+      price: 599,
+    },
+    '002': {
+      name: '大球氣質銀飾耳環(針式)',
+      count: 1,
+      color: '紅色',
+      price: 281,
+    },
+  },
   payBy: payTypes.SHOP,                                 // payment types
   curShopID: '001',
   shops: {                                              // commone shop list
@@ -68,8 +71,8 @@ export const state = {
     no: 'JC293016',
     shop: {
       storeID: '001',
-      payCode: '',
-      payDeadLine: '',
+      payCode: 'Rh7847213183',
+      payDeadLine: '2019/08/10,am00:00',
     },
     card: {
       number: '',
@@ -78,11 +81,11 @@ export const state = {
       fee: 0,
     },
     webatm: {
-      bankCode: '',
-      fee: 0,
+      bankCode: '808',
+      fee: 15,
     },
     linepay: {
-      discount: 0,
+      discount: 65,
       fee: 0,
     },
     orderer: {

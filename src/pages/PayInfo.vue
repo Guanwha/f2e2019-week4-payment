@@ -1,7 +1,7 @@
 <template>
   <div class="wrap">
     <!-- header -->
-    <PurchaseInfo/>
+    <PurchaseInfo :pShowDetail='true'/>
     <!-- pay content -->
     <router-view></router-view>
 
