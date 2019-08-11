@@ -3,7 +3,10 @@
     <!-- header -->
     <PurchaseInfo :pShowDetail='false'/>
     <!-- content -->
-    <div class="content"></div>
+    <div class="content">
+      <div class="check-title">確認訂購！</div>
+      <OrderInfo/>
+    </div>
     <!-- buttons -->
     <div class="btns container">
       <div class="col-lg-8 hide-in-phone"></div>
@@ -20,11 +23,13 @@
 <script>
 import { mapActions } from 'vuex';
 import PurchaseInfo from '../components/PurchaseInfo';
+import OrderInfo from '../components/OrderInfo';
 
 export default {
   name: 'PayCheck',
   components: {
     PurchaseInfo,
+    OrderInfo,
   },
   methods: {
     prev() {
@@ -50,8 +55,12 @@ export default {
   flex-direction: column;
 }
 .content {
-  height: 200px;            // [DELETE]
-  background: lightcoral;
+  margin-bottom: 30px;
+  .check-title {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    font-size: $f-size-6;
+  }
 }
 .btns {
   height: 56.34px;
